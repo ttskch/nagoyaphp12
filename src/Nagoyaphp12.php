@@ -8,4 +8,10 @@ namespace Ttskch\Nagoyaphp12;
 
 class Nagoyaphp12
 {
+    public function run(string $input): string
+    {
+        $output = $input;
+
+        return $output;
+    }
 }
