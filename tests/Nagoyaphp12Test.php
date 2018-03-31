@@ -23,7 +23,7 @@ class Nagoyaphp12Test extends TestCase
     {
         $actual = $this->skeleton;
 
-        $this->assertEquals($expected, $actual->run($input));
+        $this->assertEquals(intval($expected), $actual->run($input));
     }
 
     public function provider()

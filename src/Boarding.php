@@ -20,7 +20,7 @@ class Boarding
         $this->passengers = $passengers;
     }
 
-    public function calculateTotalPrice()
+    public function calculateTotalPrice(): int
     {
         $this->setFreeToInfants();
 

@@ -8,7 +8,7 @@ namespace Ttskch\Nagoyaphp12;
 
 class Nagoyaphp12
 {
-    public function run(string $input): string
+    public function run(string $input): int
     {
         $parser = new InputParser();
         $boarding = $parser->parse($input);
