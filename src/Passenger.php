@@ -38,21 +38,15 @@ class Passenger
             case 'Aw':
             case 'Cn':
             case 'In':
-                return $this->getHalfPrice($basePrice);
+                return Calculator::half($basePrice);
             case 'Cw':
             case 'Iw':
-                return $this->getHalfPrice($this->getHalfPrice($basePrice));
+                return Calculator::half(Calculator::half($basePrice));
             case 'Ap':
             case 'Cp':
             case 'Ip':
             default:
                 return 0;
         }
-    }
-
-    // todo: to be refactored. this function should not be here...
-    public function getHalfPrice(int $basePrice): int
-    {
-        return intval(round($basePrice * 0.5, -1));
     }
 }
