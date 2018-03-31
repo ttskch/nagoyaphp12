@@ -15,6 +15,6 @@ class InputParser
             $passengers[] = new Passenger(substr($rawPassenger, 0, 1), substr($rawPassenger, 1, 1));
         }
 
-        $boarding = new Boarding($basePrice, $passengers);
+        return new Boarding($basePrice, $passengers);
     }
 }

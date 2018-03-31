@@ -10,8 +10,9 @@ class Nagoyaphp12
 {
     public function run(string $input): string
     {
-        $output = $input;
+        $parser = new InputParser();
+        $boarding = $parser->parse($input);
 
-        return $output;
+        return $boarding->calculateTotalPrice();
     }
 }

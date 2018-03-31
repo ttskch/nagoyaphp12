@@ -17,7 +17,7 @@ class Nagoyaphp12Test extends TestCase
     }
 
     /**
-     * @dataProvider testProvider
+     * @dataProvider provider
      */
     public function test(string $input, string $expected)
     {
@@ -26,7 +26,7 @@ class Nagoyaphp12Test extends TestCase
         $this->assertEquals($expected, $actual->run($input));
     }
 
-    public function testProvider()
+    public function provider()
     {
         return [
             ['210:Cn,In,Iw,Ap,Iw', '170'],
