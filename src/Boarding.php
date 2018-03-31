@@ -22,16 +22,29 @@ class Boarding
 
     public function calculateTotalPrice()
     {
+        $this->setFreeToInfants();
+
+        $totalPrice = 0;
+
+        foreach ($this->passengers as $passenger) {
+            $totalPrice += $passenger->getPrice($this->basePrice);
+        }
+
+        return $totalPrice;
+    }
+
+    public function setFreeToInfants(): void
+    {
+        $adultsNum = 0;
         $infants = [];
-        $adults = [];
 
         foreach ($this->passengers as $passenger) {
             switch ($passenger->age) {
+                case 'A':
+                    $adultsNum++;
+                    break;
                 case 'I':
                     $infants[] = $passenger;
-                    break;
-                case 'A':
-                    $adults[] = $passenger;
                     break;
             }
         }
@@ -57,16 +70,8 @@ class Boarding
         // desc
         $infants = array_reverse($infants);
 
-        for ($i = 0; $i < count($adults) * 2 && $i < count($infants); $i++) {
+        for ($i = 0; $i < $adultsNum * 2 && $i < count($infants); $i++) {
             $infants[$i]->isFree = true;
         }
-
-        $totalPrice = 0;
-
-        foreach ($this->passengers as $passenger) {
-            $totalPrice += $passenger->getPrice($this->basePrice);
-        }
-
-        return $totalPrice;
     }
 }

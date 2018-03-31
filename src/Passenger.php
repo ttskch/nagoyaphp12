@@ -50,6 +50,7 @@ class Passenger
         }
     }
 
+    // todo: to be refactored. this function should not be here...
     public function getHalfPrice(int $basePrice): int
     {
         return intval(round($basePrice * 0.5, -1));
