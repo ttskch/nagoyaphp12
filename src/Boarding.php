@@ -63,6 +63,7 @@ class Boarding
                 case 'wn':
                 case 'pw':
                 case 'pn':
+                default:
                     return -1;
             }
         });
